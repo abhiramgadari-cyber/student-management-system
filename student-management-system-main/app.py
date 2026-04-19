@@ -128,6 +128,12 @@ def get_statistics():
 @app.route('/api/health', methods=['GET'])
 def health_check():
     return jsonify({'status': 'API is running'})
+@app.route('/')
+def home():
+    return jsonify({
+        "status": "running",
+        "message": "Student Management System API is live"
+    })
 
 
 

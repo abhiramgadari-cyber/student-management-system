@@ -1,4 +1,4 @@
-from flask import Flask, request, jsonify, render_template
+from flask import Flask, request, jsonify
 from flask_cors import CORS
 from datetime import datetime
 import json
@@ -6,6 +6,12 @@ import os
 
 app = Flask(__name__)
 CORS(app)
+@app.route('/')
+def home():
+    return jsonify({
+        "status": "running",
+        "message": "Student Management System API is live"
+    })
 
 # Database file
 DATA_FILE = 'students.json'
@@ -123,8 +129,16 @@ def get_statistics():
 def health_check():
     return jsonify({'status': 'API is running'})
 
-if __name__ == '__main__':
-   import os
 
-port = int(os.environ.get("PORT", 5000))
-app.run(host="0.0.0.0", port=port)
+
+if __name__ == "__main__":
+    import os
+    port = int(os.environ.get("PORT", 5000))
+    app.run(host="0.0.0.0", port=port)
+
+
+
+
+
+
+   

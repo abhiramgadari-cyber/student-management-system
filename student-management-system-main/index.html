@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Management System</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="header-top">
+                <div>
+                    <h1>📚 Student Management System</h1>
+                    <p>Manage your students efficiently</p>
+                </div>
+                <div class="header-user-info">
+                    <span id="userGreeting"></span>
+                    <button class="btn btn-logout" onclick="logout()">Logout</button>
+                </div>
+            </div>
+        </header>
+
+        <div class="content">
+            <!-- Add/Edit Student Form -->
+            <section class="form-section">
+                <h2>Add New Student</h2>
+                <form id="studentForm">
+                    <div class="form-group">
+                        <label for="studentId">Student ID:</label>
+                        <input type="text" id="studentId" placeholder="e.g., STU001" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="studentName">Full Name:</label>
+                        <input type="text" id="studentName" placeholder="Enter full name" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="studentEmail">Email:</label>
+                        <input type="email" id="studentEmail" placeholder="example@email.com" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="studentPhone">Phone:</label>
+                        <input type="tel" id="studentPhone" placeholder="+1 234-567-8900" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="studentCourse">Course:</label>
+                        <select id="studentCourse" required>
+                            <option value="">Select a course</option>
+                            <option value="Computer Science">Computer Science</option>
+                            <option value="Business Administration">Business Administration</option>
+                            <option value="Engineering">Engineering</option>
+                            <option value="Arts">Arts</option>
+                            <option value="Science">Science</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="studentGPA">GPA:</label>
+                        <input type="number" id="studentGPA" placeholder="3.5" min="0" max="4" step="0.1" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="studentStatus">Status:</label>
+                        <select id="studentStatus" required>
+                            <option value="Active">Active</option>
+                            <option value="Inactive">Inactive</option>
+                            <option value="Graduated">Graduated</option>
+                        </select>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary">Add Student</button>
+                    <button type="button" class="btn btn-secondary" id="resetBtn">Reset</button>
+                </form>
+            </section>
+
+            <!-- Search and Filter Section -->
+            <section class="search-section">
+                <h2>Search & Filter</h2>
+                <div class="search-bar">
+                    <input type="text" id="searchInput" placeholder="Search by name, ID, or email...">
+                    <select id="filterCourse">
+                        <option value="">All Courses</option>
+                        <option value="Computer Science">Computer Science</option>
+                        <option value="Business Administration">Business Administration</option>
+                        <option value="Engineering">Engineering</option>
+                        <option value="Arts">Arts</option>
+                        <option value="Science">Science</option>
+                    </select>
+                    <select id="filterStatus">
+                        <option value="">All Status</option>
+                        <option value="Active">Active</option>
+                        <option value="Inactive">Inactive</option>
+                        <option value="Graduated">Graduated</option>
+                    </select>
+                    <button class="btn btn-info" id="exportBtn">Export to CSV</button>
+                </div>
+            </section>
+
+            <!-- Students List -->
+            <section class="list-section">
+                <h2>Students List <span id="studentCount">(0)</span></h2>
+                <div id="noStudents" class="no-data">
+                    <p>No students added yet. Add a new student to get started!</p>
+                </div>
+                <table id="studentsTable" class="hidden">
+                    <thead>
+                        <tr>
+                            <th>Student ID</th>
+                            <th>Name</th>
+                            <th>Email</th>
+                            <th>Phone</th>
+                            <th>Course</th>
+                            <th>GPA</th>
+                            <th>Status</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="studentsTableBody">
+                    </tbody>
+                </table>
+            </section>
+        </div>
+    </div>
+
+    <!-- Edit Modal -->
+    <div id="editModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Edit Student</h2>
+            <form id="editForm">
+                <div class="form-group">
+                    <label for="editStudentId">Student ID:</label>
+                    <input type="text" id="editStudentId" disabled>
+                </div>
+
+                <div class="form-group">
+                    <label for="editStudentName">Full Name:</label>
+                    <input type="text" id="editStudentName" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="editStudentEmail">Email:</label>
+                    <input type="email" id="editStudentEmail" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="editStudentPhone">Phone:</label>
+                    <input type="tel" id="editStudentPhone" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="editStudentCourse">Course:</label>
+                    <select id="editStudentCourse" required>
+                        <option value="Computer Science">Computer Science</option>
+                        <option value="Business Administration">Business Administration</option>
+                        <option value="Engineering">Engineering</option>
+                        <option value="Arts">Arts</option>
+                        <option value="Science">Science</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="editStudentGPA">GPA:</label>
+                    <input type="number" id="editStudentGPA" min="0" max="4" step="0.1" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="editStudentStatus">Status:</label>
+                    <select id="editStudentStatus" required>
+                        <option value="Active">Active</option>
+                        <option value="Inactive">Inactive</option>
+                        <option value="Graduated">Graduated</option>
+                    </select>
+                </div>
+
+                <button type="submit" class="btn btn-primary">Save Changes</button>
+                <button type="button" class="btn btn-secondary" onclick="closeEditModal()">Cancel</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="auth.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

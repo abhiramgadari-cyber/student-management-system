@@ -1,0 +1,102 @@
+[
+  {
+    "id": "STU001",
+    "name": "John Doe",
+    "email": "john.doe@email.com",
+    "phone": "+1 234-567-8900",
+    "course": "Computer Science",
+    "gpa": 3.8,
+    "status": "Active",
+    "dateAdded": "2024-04-19"
+  },
+  {
+    "id": "STU002",
+    "name": "Jane Smith",
+    "email": "jane.smith@email.com",
+    "phone": "+1 234-567-8901",
+    "course": "Business Administration",
+    "gpa": 3.5,
+    "status": "Active",
+    "dateAdded": "2024-04-19"
+  },
+  {
+    "id": "STU003",
+    "name": "Mike Johnson",
+    "email": "mike.johnson@email.com",
+    "phone": "+1 234-567-8902",
+    "course": "Engineering",
+    "gpa": 3.9,
+    "status": "Active",
+    "dateAdded": "2024-04-19"
+  },
+  {
+    "id": "STU004",
+    "name": "Sarah Williams",
+    "email": "sarah.williams@email.com",
+    "phone": "+1 234-567-8903",
+    "course": "Computer Science",
+    "gpa": 3.6,
+    "status": "Active",
+    "dateAdded": "2024-04-19"
+  },
+  {
+    "id": "STU005",
+    "name": "Robert Brown",
+    "email": "robert.brown@email.com",
+    "phone": "+1 234-567-8904",
+    "course": "Arts",
+    "gpa": 3.2,
+    "status": "Active",
+    "dateAdded": "2024-04-19"
+  },
+  {
+    "id": "STU006",
+    "name": "Emily Davis",
+    "email": "emily.davis@email.com",
+    "phone": "+1 234-567-8905",
+    "course": "Science",
+    "gpa": 3.7,
+    "status": "Active",
+    "dateAdded": "2024-04-19"
+  },
+  {
+    "id": "STU007",
+    "name": "David Martinez",
+    "email": "david.martinez@email.com",
+    "phone": "+1 234-567-8906",
+    "course": "Computer Science",
+    "gpa": 3.4,
+    "status": "Inactive",
+    "dateAdded": "2024-04-19"
+  },
+  {
+    "id": "STU008",
+    "name": "Lisa Anderson",
+    "email": "lisa.anderson@email.com",
+    "phone": "+1 234-567-8907",
+    "course": "Engineering",
+    "gpa": 3.8,
+    "status": "Active",
+    "dateAdded": "2024-04-19"
+  },
+  {
+    "id": "STU009",
+    "name": "James Wilson",
+    "email": "james.wilson@email.com",
+    "phone": "+1 234-567-8908",
+    "course": "Business Administration",
+    "gpa": 3.3,
+    "status": "Graduated",
+    "dateAdded": "2024-04-19"
+  },
+  {
+    "id": "STU010",
+    "name": "Jessica Taylor",
+    "email": "jessica.taylor@email.com",
+    "phone": "+1 234-567-8909",
+    "course": "Arts",
+    "gpa": 3.9,
+    "status": "Active",
+    "dateAdded": "2024-04-19"
+  }
+]
